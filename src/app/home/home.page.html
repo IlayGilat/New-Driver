@@ -1,20 +1,85 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--
+  mor - morning
+  eve - evening
+  new - new Driver
+-->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+  <div [style.height]="'30%'" [style.margin-top]="'20px'">
+    <circle-progress
+      [percent]="percentMor"
+      [maxPercent]="100"
+      [radius]="radiusMor"
+      [showTitle]="true"
+      [showSubtitle]="true"
+      [title]="daysMorString"
+      [subtitle]="Mor"
+      [subtitleFontSize]="'40'"
+      [titleFontSize]="'40'"
+      [showUnits]="false"
+      [outerStrokeWidth]="16"
+      [outerStrokeColor]="'#8000FF'"
+      [showZeroOuterStroke]="false"
+      [backgroundStroke]="'#33003F'"
+      [backgroundStrokeWidth]="3"
+      [outerStrokeGradient]="true"
+      [outerStrokeGradientStopColor]="'#FF00CB'"
+      [showInnerStroke]="false"
+    ></circle-progress>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <circle-progress
+      [percent]="percentEve"
+      [maxPercent]="100"
+      [radius]="radiusEve"
+      [showTitle]="true"
+      [showSubtitle]="true"
+      [title]="daysEveString"
+      [subtitle]="Eve"
+      [subtitleFontSize]="'40'"
+      [titleFontSize]="'40'"
+      [showUnits]="false"
+      [outerStrokeWidth]="16"
+      [outerStrokeColor]="'#DE781F'"
+      [showZeroOuterStroke]="false"
+      [backgroundStroke]="'#E44D26'"
+      [backgroundStrokeWidth]="3"
+      [outerStrokeGradient]="true"
+      [outerStrokeGradientStopColor]="'#F16529'"
+      [showInnerStroke]="false"
+    ></circle-progress>
+
+    <circle-progress
+      [percent]="percentNew"
+      [maxPercent]="100"
+      [radius]="radiusNew"
+      [showTitle]="true"
+      [showSubtitle]="true"
+      [title]="daysNewString"
+      [subtitle]="New"
+      [subtitleFontSize]="'40'"
+      [titleFontSize]="'40'"
+      [showUnits]="false"
+      [outerStrokeWidth]="16"
+      [outerStrokeColor]="'#8000FF'"
+      [showZeroOuterStroke]="false"
+      [backgroundStroke]="'#4AC29A'"
+      [backgroundStrokeWidth]="3"
+      [outerStrokeGradient]="true"
+      [outerStrokeGradientStopColor]="'#BDFFF3'"
+      [showInnerStroke]="false"
+      ></circle-progress>
+
+      <ion-fab-button (click)="picker.open()" color="primary" style="margin-left: 10px; margin-top: -10px;">
+        <ion-icon icon="calendar"></ion-icon>
+        <ion-datetime
+        #picker
+        [max]="today"
+        display-format="YYYY:MM:DD"
+        placeholder="תאריך עבירת הטסט"
+        [(ngModel)]="DrivingTestPassDate"
+        (ionChange)="startTimer()"
+        hidden="true"
+        ></ion-datetime>
+      </ion-fab-button>
+    </div>
 </ion-content>

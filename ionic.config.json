@@ -1,5 +1,7 @@
 {
-  "name": "New Driver",
-  "integrations": {},
+  "name": "נהג חדש",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
